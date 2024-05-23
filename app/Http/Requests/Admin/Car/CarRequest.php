@@ -32,7 +32,7 @@ class CarRequest extends FormRequest
             'engine_type' => ['required', Rule::enum(EngineTypeEnum::class)],
             'engine_power' => ['required', 'integer'],
             'wheel_drive' => ['required', Rule::enum(AWDEnum::class)],
-            'zero_to_full' => ['required', 'integer'],
+            'zero_to_full' => ['required', 'decimal:0,100'],
             'price' => ['required', 'string'],
             'image_path.*' => ['required', 'image', 'max:8192', 'mimes:png,jpg,gif,jpeg,webp'],
         ];

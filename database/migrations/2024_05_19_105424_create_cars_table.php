@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('engine_type');
             $table->unsignedInteger('engine_power');
             $table->unsignedTinyInteger('wheel_drive');
-            $table->unsignedTinyInteger('zero_to_full');
+            $table->decimal('zero_to_full',3,1);
             $table->unsignedInteger('price');
             $table->string('image_path')->nullable();
 

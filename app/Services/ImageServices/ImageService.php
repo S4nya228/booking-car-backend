@@ -16,7 +16,7 @@ class ImageService
         if ($request->has('image_path')) {
             $validatedData['image_path'] = $this->processingImageInput($request);
         }
-
+        
         return $validatedData;
     }
 
