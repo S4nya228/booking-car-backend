@@ -48,11 +48,12 @@ class CarController extends Controller
      */
     public function update(CarRequest $request, Car $car)
     {
+      
         $data = $this->service->validationData($request);
 
         $car->update($data);
 
-        return response()->json(['message' => 'Created success'], Response::HTTP_CREATED);
+        return response()->json(['message' => 'Updated success'], Response::HTTP_CREATED);
     }
 
     /**

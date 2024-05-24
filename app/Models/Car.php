@@ -28,6 +28,7 @@ class Car extends Model
      * @var array<string>
      */
     protected $fillable = [
+        'name',
         'car_class',
         'brand',
         'color',
@@ -44,9 +45,9 @@ class Car extends Model
      *
      * @var array
      */
-    protected $casts = [
-        'car_class' => CarClassCast::class,
-        'engine_type' => EngineTypeCast::class,
-        'wheel_drive' => AWDCast::class,
-    ];
+    // protected $casts = [
+    //     'car_class' => CarClassCast::class,
+    //     'engine_type' => EngineTypeCast::class,
+    //     'wheel_drive' => AWDCast::class,
+    // ];
 }

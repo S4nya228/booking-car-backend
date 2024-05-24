@@ -26,6 +26,7 @@ class CarRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => ['required', 'string', 'min:3', 'max:30'],
             'car_class' => ['required', Rule::enum(CarClassEnum::class)],
             'brand' => ['required', 'string'],
             'color' => ['required', 'string'],
@@ -33,7 +34,7 @@ class CarRequest extends FormRequest
             'engine_power' => ['required', 'integer'],
             'wheel_drive' => ['required', Rule::enum(AWDEnum::class)],
             'zero_to_full' => ['required', 'decimal:0,100'],
-            'price' => ['required', 'string'],
+            'price' => ['required', 'integer'],
             'image_path.*' => ['required', 'image', 'max:8192', 'mimes:png,jpg,gif,jpeg,webp'],
         ];
     }
