@@ -27,7 +27,9 @@ class UserController extends Controller
 
         $request->user()->update($validated);
 
-        return response()->noContent(Response::HTTP_ACCEPTED);
+        $user = User::find($request->user()->id);
+
+        return UserResource::make($user);
     }
 
 }

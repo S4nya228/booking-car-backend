@@ -23,7 +23,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:3', 'max:20'],
-            'email' => ['required', 'string', 'unique:users,email', 'email:rfc,dns', 'ends_with:.com, .net, .ua'],
+            'email' => ['required', 'string', "unique:users,email," . $this->user()->id . ',id', 'email:rfc,dns', 'ends_with:.com, .net, .ua'],
         ];
     }
 }
