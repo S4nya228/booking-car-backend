@@ -1,14 +1,16 @@
 <?php
 
-use App\Enum\OrderStatusEnum;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\Car\CarController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Search\SerachController;
 use App\Http\Controllers\BookingCar\BookingCarController;
 
 Route::get('/getImage/{fileName}', ImageController::class);
+
+Route::get('/search', SerachController::class);
 
 Route::group(['as' => 'auth.', 'controller' => AuthController::class], function () {
 

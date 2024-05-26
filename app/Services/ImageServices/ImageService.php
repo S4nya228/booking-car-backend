@@ -2,8 +2,6 @@
 
 namespace App\Services\ImageServices;
 
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
@@ -16,7 +14,7 @@ class ImageService
         if ($request->has('image_path')) {
             $validatedData['image_path'] = $this->processingImageInput($request);
         }
-        
+
         return $validatedData;
     }
 
@@ -32,7 +30,7 @@ class ImageService
     public function getImage($fileName): array
     {
         if (!Storage::exists("public/images/$fileName")) {
-            return response()->json(['error' => 'Image not found'], Response::HTTP_NOT_FOUND);
+            throw ValidationException::withMessages(['error' => "Image not found, {$fileName}"]);
         }
 
         $file = Storage::get("public/images/$fileName");
