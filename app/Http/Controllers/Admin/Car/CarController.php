@@ -30,9 +30,11 @@ class CarController extends Controller
     {
         $data = $this->service->validationData($request);
 
-        Car::create($data);
+        $car = Car::create($data);
 
-        return response()->json(['message' => 'Created success'], Response::HTTP_CREATED);
+
+
+        return CarResource::make($car);
     }
 
     /**
@@ -48,7 +50,6 @@ class CarController extends Controller
      */
     public function update(CarRequest $request, Car $car)
     {
-      
         $data = $this->service->validationData($request);
 
         $car->update($data);
