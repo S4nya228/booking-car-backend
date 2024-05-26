@@ -33,11 +33,11 @@ class BookingCarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BookingCarRequest $request, BookingCar $bookingCar)
+    public function update(BookingCarRequest $request, BookingCar $booking)
     {
         $data = $this->service->validationData($request);
 
-        $bookingCar->update($data);
+        $booking->update($data);
 
         return response()->json(['message' => 'Update success'], Response::HTTP_CREATED);
     }
