@@ -35,6 +35,7 @@ class CarRequest extends FormRequest
             'wheel_drive' => ['required', Rule::enum(AWDEnum::class)],
             'zero_to_full' => ['required', 'decimal:0,100'],
             'price' => ['required', 'integer'],
+            'image_path' => ['required', 'array', 'min:4', 'max:6'],
             'image_path.*' => ['required', 'image', 'max:8192', 'mimes:png,jpg,gif,jpeg,webp'],
         ];
     }
