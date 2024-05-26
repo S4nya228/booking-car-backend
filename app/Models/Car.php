@@ -8,12 +8,13 @@ use App\Casts\EngineTypeCast;
 use App\Enum\AWDEnum;
 use App\Enum\CarClassEnum;
 use App\Enum\EngineTypeEnum;
+use App\Traits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
-    use HasFactory;
+    use HasFactory, Filterable;
 
     /**
      * The table associated with the model.
