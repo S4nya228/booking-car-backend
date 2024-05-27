@@ -8,6 +8,8 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Services\ImageServices\ImageService;
 use App\Http\Requests\BookingCar\BookingCarRequest;
+use App\Http\Resources\BookingCar\BookingCarResource;
+use App\Enum\OrderStatusEnum;
 
 class BookingCarController extends Controller
 {
@@ -20,10 +22,12 @@ class BookingCarController extends Controller
      */
     public function store(BookingCarRequest $request)
     {
+
         $data = $this->service->validationData($request);
 
-        BookingCar::create($data);
+        $order = BookingCar::create($data);
 
-        return response()->json(['message' => 'Sended success'], Response::HTTP_CREATED);
+        $order['order_status'] = OrderStatusEnum::CONFIRMATION->value;
+        return BookingCarResource::make($order);
     }
 }
