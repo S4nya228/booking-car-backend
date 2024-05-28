@@ -17,13 +17,13 @@ enum CarClassEnum:int
     {
         return match ($this) {
             self::BUSINESS => 'Бізнес',
-            self::CABRIOLET => 'Кабріолет',
+            self::CABRIOLET => 'Кабріолети',
             self::COUPE => 'Купе',
-            self::ELECTRO_CAR => 'Електрокар',
-            self::MINIVAN => 'Мінівен',
-            self::OFF_ROADS => 'Позашляховик',
+            self::ELECTRO_CAR => 'Електрокари',
+            self::MINIVAN => 'Мінівени',
+            self::OFF_ROADS => 'Позашляховики',
             self::PREMIUM => 'Преміум',
-            self::SPORTCAR => 'Спорткар',
+            self::SPORTCAR => 'Спорткари',
             default => 'Бізнес',
         };
     }

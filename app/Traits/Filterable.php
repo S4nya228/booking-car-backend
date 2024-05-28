@@ -16,8 +16,11 @@ trait Filterable
             $query->where('brand', $request->brand);
         }
 
-        if ($request->filled('engine_power')) {
-            $query->where('engine_power', $request->engine_power);
+        if ($request->filled('engine_type')) {
+            $query->where('engine_type', $request->engine_type);
+        }
+        if ($request->filled('car_class')) {
+            $query->where('car_class', $request->car_class);
         }
 
         if ($request->filled('min_price')) {
